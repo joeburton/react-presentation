@@ -9,16 +9,16 @@ import App from 'layouts/app';
 import Home from 'ui/home';
 import WidgetContainer from 'ui/widget-container';
 import UsersContainer from 'ui/users-container';
+import EditContainer from 'ui/edit-container';
 
 ReactDOM.render((
     <Router history={browserHistory}>
 
         <Route component={App}>
-
             <Route path="/" component={Home} />
             <Route path="/widgets" component={WidgetContainer} />
             <Route path="/users" component={UsersContainer} />
-
+            <Route path="/users/edit" component={EditContainer} />
         </Route>
 
     </Router>

@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Users from './users';
 import { getUsers } from 'api/user';
 
-export default React.createClass({
+export default class UsersContainer extends Component {
 
-    getInitialState: function() {
+    constructor(props) {
+        super(props);
+        this.state = this.buildInitialState();
+    }
+
+    buildInitialState() {
         return {
             users: []
         }
-    },
+    }
 
-    componentWillMount: function() {
+    componentWillMount() {
         var _this = this;
         getUsers().then(function(response) {
             _this.setState({
@@ -19,11 +24,19 @@ export default React.createClass({
         }).catch(function(err) {
             console.error(err);
         });
-    },
+    }
 
-    render: function() {
+    render() {
         return (
             <Users users={this.state.users} />
         )
     }
-});
+
+};
+
+
+UsersContainer.propTypes = {
+    
+};
+
+
